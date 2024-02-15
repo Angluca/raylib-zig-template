@@ -1,0 +1,22 @@
+.{
+    .name = "raylib-zig-template",
+    .version = "0.0.2",
+    .dependencies = .{
+        .raylib = .{
+            .url = "https://github.com/raysan5/raylib/archive/dc7f81a7b0cbc666812c870841313e0c15a87a0c.tar.gz",
+            .hash = "12200e0dee4bc44447f856ca009b3dc782bfa677578ebf65a09b73ad69906d49bbc7",
+            //.path = "raylib"
+        },
+        .raygui = .{
+            .url = "https://github.com/raysan5/raygui/archive/7fe39be75af7d166c50afb6e6b9013398d66a7e1.tar.gz",
+            .hash = "12205b5293d62a48e0c111011f5832f72d4dad0594097eeae10a3a9edcda5bf17612",
+            //.path = "raygui"
+        },
+    },
+    .paths = .{
+        "build.zig",
+        "build.zig.zon",
+        "README.md",
+        "src",
+    },
+}
