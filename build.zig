@@ -47,16 +47,17 @@ pub fn build(b: *std.Build) void {
         .optimize = raylib_optimize,
     });
 
+    exe.addIncludePath(raylib_dep.path("src"));
     exe.addIncludePath(raygui_dep.path("src"));
+    exe.addIncludePath(.{.path = "src"});
+    exe.addIncludePath(.{.path = "libs"});
     exe.addCSourceFile(.{
-        .file = .{.path = "src/raygui_impl.c"},
-        .flags = &.{
-            "-g",
-            "-O3",
-        },
+        .file = .{.path = "libs/libs.c"},
+        .flags = if(strip) &.{ "-O3" }
+                 else &.{ "-g" }
     });
-    //exe.linkLibC();
     exe.linkLibrary(raylib_dep.artifact("raylib"));
+    exe.linkLibC();
 
     // This declares intent for the executable to be installed into the
     // standard location when the user invokes the "install" step (the default
